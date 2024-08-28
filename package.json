@@ -2,12 +2,11 @@
   "name": "lib-integration-test",
   "version": "1.0.0",
   "description": "",
-  "main": "segwit.js",
-  "type": "module",
+  "main": "index.ts",
   "scripts": {
     "dev": "tsc -w",
-    "build": "rm -r lib/* && tsc",
-    "start": "node lib/segwit.js",
+    "build": "rm -r lib/* || tsc",
+    "start": "node lib/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +16,7 @@
     "@ledgerhq/hw-app-btc": "^10.4.1",
     "@ledgerhq/hw-transport-node-hid": "^6.29.3",
     "@ledgerhq/logs": "^6.12.0",
+    "axios": "^1.7.5",
     "esm": "^3.2.25",
     "ledger-bitcoin": "^0.2.3"
   },
