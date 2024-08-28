@@ -1,5 +1,8 @@
 import { AppClient, DefaultWalletPolicy, WalletPolicy } from 'ledger-bitcoin';
 import Transport from '@ledgerhq/hw-transport-node-hid';
+import { listen, log } from "@ledgerhq/logs";
+
+listen(log => console.log(log));
 
 async function main(transport, derivationPath) {
     const app = new AppClient(transport);

@@ -5,7 +5,9 @@
   "main": "segwit.js",
   "type": "module",
   "scripts": {
-    "start": "node segwit.js",
+    "dev": "tsc -w",
+    "build": "rm -r lib/* && tsc",
+    "start": "node lib/segwit.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,5 +19,9 @@
     "@ledgerhq/logs": "^6.12.0",
     "esm": "^3.2.25",
     "ledger-bitcoin": "^0.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.1",
+    "typescript": "^5.5.4"
   }
 }
