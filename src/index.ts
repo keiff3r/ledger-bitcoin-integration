@@ -123,21 +123,24 @@ async function signBitcoinTransaction(
   }
 }
 
-async function main() {
+async function main(transportType: "real" | "speculos" = "speculos") {
   // Create transport
   const speculosUrl = "http://localhost:5000";
-  const transport = new TransportSpeculos(speculosUrl);
+  const transport =
+    transportType === "real"
+      ? await TransportNodeHid.create()
+      : new TransportSpeculos(speculosUrl);
 
-  // Get wallet public key
-  const walletPublicKey = await getWalletPublicKey(transport, true, path);
-  // // Sign transaction
-  // const signedTx = await signBitcoinTransaction(
-  //   transport,
-  //   inputs,
-  //   associatedKeysets,
-  //   outputs
-  // );
-  // console.log("Signed transaction:", signedTx);
+  // // Get wallet public key
+  // const walletPublicKey = await getWalletPublicKey(transport, true, path);
+  // Sign transaction
+  const signedTx = await signBitcoinTransaction(
+    transport,
+    inputs,
+    associatedKeysets,
+    outputs
+  );
+  console.log("Signed transaction:", signedTx);
   await transport.close();
   return true;
 }
