@@ -16,7 +16,7 @@ export default class TransportSpeculos extends Transport {
       });
       console.log(
         "--km_log--[SpeculosTransport.ts]--(exchange)--response--",
-        response
+        response.data
       );
       return Buffer.from(response.data.data, "hex");
     } catch (error) {
