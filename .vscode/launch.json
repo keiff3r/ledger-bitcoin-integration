@@ -16,7 +16,8 @@
       "outFiles": [
         "${workspaceFolder}/lib/**/*.js",
       ],
-      "sourceMaps": true
+      "sourceMaps": true,
+      "console": "integratedTerminal"
     }
   ]
 }
